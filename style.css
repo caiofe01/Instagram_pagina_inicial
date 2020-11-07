@@ -1,0 +1,185 @@
+* {
+    /* Reset dos estilos, foi mencionado que evita possíveis problemas*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+body {
+    /* Afeta os "containers" em geral */
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(243, 243, 243);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.instagram-wrapper {
+    /* Container grande, envolve os dois lados (celular, e o outro que tem 3 divisórias */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 60%;
+    height: 100vh;
+}
+
+.instagram-phone {
+    /* Coluna da imagem do telefone*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.instagram-phone img {
+    /* Imagem do telefone (col. da esquerda) */
+    height: 50rem;
+}
+
+.instagram-continue {
+    display: flex;
+    align-items: center;
+    /* Aparentemente foi invertido para a horizontal devido ao flex-direction*/
+    justify-content: space-around;
+    /* Aparentemente foi invertido para a vertical devido ao flex-direction*/
+    flex-direction: column;
+    /* Em linha é o padrão, logo este seria o tratamento inverso? */
+    width: 50%;
+    min-height: 34rem;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 1.3rem 0;
+    border: 1px solid lightgray;
+}
+
+.group:nth-child(1) {
+    /* um seletor de css que busca um dos "filhos" do elemento (cada elemento do container variando de 1 ao último elemento? */
+    min-height: 19rem;
+}
+
+.instagram-logo {
+    height: 3rem;
+    /* arquivo instagram-logo, mudança no tamanho */
+}
+
+.profile-photo {
+    /* Container do arquivo perfil-instagram */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* borda circular */
+    overflow: hidden;
+}
+
+.profile-photo img {
+    /* Alteração no tamanho do arquivo perfil-instagram */
+    height: 6rem;
+}
+
+.instagram-login {
+    /* alteração visual no "botão" de login */
+    background-color: #0095f6;
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.instagram-logout {
+    /* alteração visual no "botão" de remover conta */
+    color: #0095f6;
+    margin-top: 1rem;
+}
+
+.not-account {
+    /* grupo not account é o segundo bloco do lado direito*/
+    color: rgb(160, 160, 160);
+}
+
+.link-blue {
+    /* Mudança na cor do "Alterar Contas" e "Inscreva-se" */
+    color: #0095f6;
+}
+
+.get-the-app {
+    /* Alteração na estrutura (tamanho) dos elementos do terceiro bloco do lado direito */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.3rem 0;
+}
+
+.download {
+    /* alteração na estrutura dos supostos elementos (download google play // apple ) do terceiro bloco. */
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+}
+
+.app-download {
+    /* impacta em ambos os elementos download google play e apple para terem mesmo tamanho*/
+    height: 3rem;
+    width: 10rem;
+    background-size: cover;
+}
+
+.app-download:nth-child(1) {
+    /* primeiro elemento usando esta tag*/
+    background-image: url('./img/apple-button.png');
+}
+
+.app-download:nth-child(2) {
+    /* segundo elemento usando esta tag */
+    background-image: url('./img/googleplay-button.png');
+}
+
+/* media queries */
+
+/* aparentemente é para garantir que a tela adapte seu tamanho de acordo com o dispositivo
+ "responsividade" foi o termo utilizado */
+
+@media (max-width: 1024px) {
+    /* Se a tela tiver até este tamanho, faça o que tiver nas chaves, senão, o que estiver acima em termos de tamanho dos elementos*/
+    .instagram-wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 650px) {
+    /* oara telas ainda menores */
+    body {
+        /* Muda a cor do fundo de cinza p/ branco ao chegar neste tamanho */
+        background-color: #ffffff;
+    }
+    .instagram-wrapper {
+        width: 90%;
+    }
+    .instagram-phone {
+        /* Se chegar a esta faixa de tamanho (650-) a img do telefone sairá da tela */
+        display: none;
+    }
+    .instagram-continue {
+        /* Como o elemento da coluna da direita é removido da tela, os elementos da esquerda são aumentados para ocupar o espaço */
+        width: 100%;
+    }
+    .group {
+        /* Afeta as divisórias ao chegar no tamanho de mobile, para que elas "desapareçam" */
+        border: 1px solid transparent;
+    }
+}
